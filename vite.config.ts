@@ -6,13 +6,26 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const isGhPages = process.env.GH_PAGES === "true";
+
 export default defineConfig({
   tanstackStart: {
-    server: { entry: "server" },
+    server: {
+      entry: "server",
+      // GitHub Pages 是纯静态 host，不能用默认的 Cloudflare SSR preset。
+      preset: isGhPages ? "github-pages" : "cloudflare-module",
+    },
+    // 启用静态预渲染，生成真正的 index.html。
+    prerender: {
+      enabled: isGhPages,
+      autoSubfolderIndex: true,
+      autoStaticPathsDiscovery: true,
+      crawlLinks: true,
+    },
   },
   vite: {
     // GitHub Pages 项目页部署在子路径 /xfh-gdufe-analysis/ 下；
     // 仅在该环境变量存在时切换到子路径 base，避免影响 Lovable 预览（base 为 /）。
-    base: process.env.GH_PAGES === "true" ? "/xfh-gdufe-analysis/" : "/",
+    base: isGhPages ? "/xfh-gdufe-analysis/" : "/",
   },
 });
