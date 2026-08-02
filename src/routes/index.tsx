@@ -34,7 +34,6 @@ function Index() {
         <Project />
         <Skills />
         <Methods />
-        <Evidence />
       </main>
       <Footer />
     </div>
