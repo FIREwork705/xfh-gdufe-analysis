@@ -21,7 +21,6 @@ export const NAV = [
   { id: "project", label: "项目" },
   { id: "skills", label: "能力" },
   { id: "methods", label: "方法" },
-  { id: "evidence", label: "证据" },
 ];
 
 export const PROJECT = {

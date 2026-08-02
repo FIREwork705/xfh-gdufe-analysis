@@ -3,7 +3,7 @@ import { TopNav } from "@/components/portfolio/TopNav";
 import { Hero } from "@/components/portfolio/Hero";
 import { Project } from "@/components/portfolio/Project";
 import { Skills, Methods } from "@/components/portfolio/SkillsMethods";
-import { Evidence } from "@/components/portfolio/Evidence";
+
 import { Footer } from "@/components/portfolio/Footer";
 
 const TITLE = "鲜芳慧 | 数据分析求职作品集";
@@ -34,7 +34,6 @@ function Index() {
         <Project />
         <Skills />
         <Methods />
-        <Evidence />
       </main>
       <Footer />
     </div>
