@@ -13,7 +13,7 @@ export default defineConfig({
     server: {
       entry: "server",
       // GitHub Pages 是纯静态 host，不能用默认的 Cloudflare SSR preset。
-      preset: isGhPages ? "github-pages" : "cloudflare-module",
+      preset: isGhPages ? "github_pages" : "cloudflare-module",
     },
     // 启用静态预渲染，生成真正的 index.html。
     prerender: {
