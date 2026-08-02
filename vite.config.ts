@@ -8,8 +8,11 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
+  },
+  vite: {
+    // GitHub Pages 项目页部署在子路径 /xfh-gdufe-analysis/ 下；
+    // 仅在该环境变量存在时切换到子路径 base，避免影响 Lovable 预览（base 为 /）。
+    base: process.env.GH_PAGES === "true" ? "/xfh-gdufe-analysis/" : "/",
   },
 });

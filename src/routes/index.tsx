@@ -11,6 +11,7 @@ const DESCRIPTION =
   "广东财经大学鲜芳慧的数据分析求职作品集：淘宝用户行为分析项目，涵盖流量时段、转化漏斗、RFM 分层与 Cohort 留存。";
 
 export const Route = createFileRoute("/")({
+  prerender: true,
   head: () => ({
     meta: [
       { title: TITLE },

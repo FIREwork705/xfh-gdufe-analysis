@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import type { ProjectItem } from "./Project";
-import dauChart from "@/assets/placeholder-dau.svg";
-import funnelChart from "@/assets/placeholder-funnel.svg";
-import rfmChart from "@/assets/placeholder-rfm.svg";
-import cohortChart from "@/assets/placeholder-cohort.svg";
+import dauChart from "@/assets/DAU.png";
+import funnelChart from "@/assets/Counts_of_behaviors.png";
+import rfmChart from "@/assets/frequency.png";
+import cohortChart from "@/assets/hourly_avg_behaviors.png";
 
 const CHART_SRC: Record<string, string> = {
   dau: dauChart,
