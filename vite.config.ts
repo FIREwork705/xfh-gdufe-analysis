@@ -9,12 +9,12 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const isGhPages = process.env.GH_PAGES === "true";
 
 export default defineConfig({
+  // GitHub Pages 是纯静态 host，不能用默认的 Cloudflare SSR preset。
+  nitro: {
+    preset: isGhPages ? "github_pages" : "cloudflare-module",
+  },
   tanstackStart: {
-    server: {
-      entry: "server",
-      // GitHub Pages 是纯静态 host，不能用默认的 Cloudflare SSR preset。
-      preset: isGhPages ? "github_pages" : "cloudflare-module",
-    },
+    server: { entry: "server" },
     // 启用静态预渲染，生成真正的 index.html。
     prerender: {
       enabled: isGhPages,
