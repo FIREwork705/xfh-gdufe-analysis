@@ -30,11 +30,19 @@ jobs:
         run: bun install
 
       - name: Build (GitHub Pages preset)
-        run: bun run build
+        run: bun run build 2>&1 | tee build.log
         env:
           GH_PAGES: "true"
 
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+
       - name: Upload artifact
+        if: success()
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
